@@ -1,0 +1,12 @@
+eblind_dlc(7) (optimize.brent), x=0.002697, FScore=0.976123, number of calculations=33
+eblind_dlc(7) (optimize.golden), x=0.002712, FScore=0.976131, number of calculations=46
+eblind_dlc(12) (optimize.brent), x=0.003605, FScore=0.994102, number of calculations=20
+eblind_dlc(12) (optimize.golden), x=0.003630, FScore=0.994172, number of calculations=43
+eblind_dlc(20) (optimize.brent), x=0.004614, FScore=0.999664, number of calculations=24
+eblind_dlc(20) (optimize.golden), x=0.004474, FScore=0.999682, number of calculations=43
+dct_watermark(5) (optimize.brent), x=0.003411, FScore=0.979533, number of calculations=34
+dct_watermark(5) (optimize.golden), x=0.003415, FScore=0.979523, number of calculations=45
+dct_watermark(10) (optimize.brent), x=0.004660, FScore=0.998171, number of calculations=26
+dct_watermark(10) (optimize.golden), x=0.004424, FScore=0.998154, number of calculations=46
+dct_watermark(17) (optimize.brent), x=0.092449, FScore=0.923046, number of calculations=12
+dct_watermark(17) (optimize.golden), x=0.006955, FScore=0.999956, number of calculations=41

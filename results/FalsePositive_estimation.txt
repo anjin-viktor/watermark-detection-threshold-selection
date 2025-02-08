@@ -1,0 +1,17 @@
+test_detect_threshold_false_dct_watermark_barni_lc_10_6968761623.jpg.csv ! 
+avg DCT: 11.81464582
+statistical threshold: 4.725858328
+FP count: 3881
+FP count with 33.651: 4
+
+test_detect_threshold_false_dct_watermark_barni_lc_10_533507406.jpg.csv
+avg DCT: 11.18015133
+statistical threshold: 4.472060532
+FP count: 4197
+FP count with 33.651: 3
+
+test_detect_threshold_false_dct_watermark_barni_lc_10_2412281172.jpg.csv
+avg DCT: 12.05370285
+statistical threshold: 4.82148114
+FP count: 3807
+FP count with 33.651: 3
