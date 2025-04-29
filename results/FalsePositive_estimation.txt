@@ -1,17 +1,21 @@
-test_detect_threshold_false_dct_watermark_barni_lc_10_6968761623.jpg.csv ! 
-avg DCT: 11.81464582
-statistical threshold: 4.725858328
-FP count: 3881
-FP count with 33.651: 4
+python check_detect_threshold.py test_detect_threshold_dct_watermark_barni_lc_10_32K.csv
+Watermarks detected: 31782
+Watermarks non-detected: 1
+Watermarks detected after filtering: 1130
+Watermarks non-detected after filtering: 30653
+Watermarks False Positive: 0
 
-test_detect_threshold_false_dct_watermark_barni_lc_10_533507406.jpg.csv
-avg DCT: 11.18015133
-statistical threshold: 4.472060532
-FP count: 4197
-FP count with 33.651: 3
+###after changing to 1/3 in check_detect_threshold.py
+python check_detect_threshold.py test_detect_threshold_dct_watermark_barni_lc_10_32K.csv
+Watermarks detected: 31783
+Watermarks non-detected: 0
+Watermarks detected after filtering: 24018
+Watermarks non-detected after filtering: 7765
+Watermarks False Positive: 0
 
-test_detect_threshold_false_dct_watermark_barni_lc_10_2412281172.jpg.csv
-avg DCT: 12.05370285
-statistical threshold: 4.82148114
-FP count: 3807
-FP count with 33.651: 3
+python check_detect_threshold.py test_detect_threshold_dct_watermark_barni_lc_10_32K.csv 59.36093
+Watermarks detected: 31778
+Watermarks non-detected: 5
+Watermarks detected after filtering: 30881
+Watermarks non-detected after filtering: 902
+Watermarks False Positive: 3

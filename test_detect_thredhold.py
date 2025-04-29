@@ -2,9 +2,9 @@ import os
 import math
 
 from concurrent.futures import ThreadPoolExecutor
+from watermarks import dct_watermark_barni_lc
 from watermarks import eblind_dlc
 from watermarks import dct_watermark
-from watermarks import dct_watermark_barni
 from pathlib import Path
 from tests import filter
 from tests import transcode
@@ -61,9 +61,11 @@ def calcDetectionThresholdFile(watermark, watermark_name, ebmedding_level, input
     resultFiltered = watermark.get_correlation(filtered, reference_name, input_file)
     resultNoW = watermark.get_correlation(input_file, reference_name, input_file)
 
-    result_dct = watermark.get_avg_dct(output_name, reference_name, input_file)
+    result_dct_avg = watermark.get_avg_dct(output_name, reference_name, input_file)
+    resultFiltered_dct_avg = watermark.get_avg_dct(filtered, reference_name, input_file)
+    resultNoW_dct_avg = watermark.get_avg_dct(input_file, reference_name, input_file)
  
-    return [input_filename, result_dct, result, resultFiltered, resultNoW]
+    return [input_filename, result_dct_avg, resultFiltered_dct_avg, resultNoW_dct_avg, result, resultFiltered, resultNoW]
 
 def calcDetectionThresholdFileFalse(watermark, watermark_name, ebmedding_level, input_filename, test_filename):
     filename = Path(input_filename)
@@ -131,15 +133,14 @@ def calcDetectionThresholdFalse(watermark, watermark_name, ebmedding_level):
 def calcThresholds(watermark, watermark_name, ebmedding_level):
     createReferences(watermark, watermark_name, ebmedding_level)
     calcDetectionThreshold(watermark, watermark_name, ebmedding_level)
-    calcDetectionThresholdFalse(watermark, watermark_name, ebmedding_level)
+#    calcDetectionThresholdFalse(watermark, watermark_name, ebmedding_level)
 
 if __name__ == "__main__":
-    watermark = dct_watermark_barni
-    watermark_name = "dct_watermark_barni"
+    watermark = dct_watermark_barni_lc
+    watermark_name = "dct_watermark_barni_lc"
 
 
-#    ebmedding_levels = [1,7,15,25,3,5,10,13,20,17]
-    ebmedding_levels = [7]
+    ebmedding_levels = [10]
     for ebmedding_level in ebmedding_levels:
         print(ebmedding_level)
         calcThresholds(watermark, watermark_name, ebmedding_level)

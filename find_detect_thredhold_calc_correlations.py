@@ -5,6 +5,7 @@ from concurrent.futures import ThreadPoolExecutor
 from watermarks import eblind_dlc
 from watermarks import dct_watermark
 from watermarks import e_perc_shape
+from watermarks import dct_watermark_barni_lc
 from pathlib import Path
 from tests import filter
 from tests import transcode
@@ -153,6 +154,10 @@ def calcThresholds(watermark, watermark_name, ebmedding_level):
     calcDetectionThreshold(watermark, watermark_name, ebmedding_level)
 
 if __name__ == "__main__":
+    ebmedding_level = 10
+    calcThresholds(dct_watermark_barni_lc, "dct_watermark_barni_lc", ebmedding_level)
+
+
     ebmedding_level = 7
     watermark = eblind_dlc
     watermark_name = "eblind_dlc"

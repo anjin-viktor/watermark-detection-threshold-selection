@@ -59,8 +59,8 @@ def readThresholds(watermark_name, ebmedding_level):
     global thresholds
     thresholds = detect_threshold.extractThresholds(detect_threshold.getThresholdsFilename(watermark_name, ebmedding_level))
 
-ebmedding_levels = [7, 12, 20, 5, 10, 17]
-watermark_names = ["eblind_dlc", "eblind_dlc", "eblind_dlc", "dct_watermark", "dct_watermark", "dct_watermark"]
+ebmedding_levels = [7, 12, 20, 5, 10, 17, 10]
+watermark_names = ["eblind_dlc", "eblind_dlc", "eblind_dlc", "dct_watermark", "dct_watermark", "dct_watermark", "dct_watermark_barni_lc"]
 
 for idx in range(0, len(ebmedding_levels)):
     clearCache()

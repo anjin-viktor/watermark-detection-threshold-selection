@@ -10,10 +10,11 @@ dct_skip = 8
 
 
 def gen_reference(path_source, path_output, level):
-    subprocess.call([dct_watermark_exe, "--gen_reference", "--reference_max=255", "--skip_count=" + str(dct_skip), "--in=" + path_source, "--out=" + path_output])
+    subprocess.call([dct_watermark_exe, "--gen_reference", "--barni=true", "--reference_max=255", "--skip_count=" + str(dct_skip), "--in=" + path_source, "--out=" + path_output])
 # 
 def embed(path_source, path_reference, path_output, level):
     subprocess.call([dct_watermark_exe, "--embed", "--barni=true", "--in=" + path_source, "--reference=" + path_reference, "--out=" + path_output, "--skip_count=" + str(dct_skip), "--alpha="+ str(levels[level])])
+    print([dct_watermark_exe, "--embed", "--barni=true", "--in=" + path_source, "--reference=" + path_reference, "--out=" + path_output, "--skip_count=" + str(dct_skip), "--alpha="+ str(levels[level])])
 
 def detect(path, path_reference, path_origin, threshold_level=-1):
     exe_params = [dct_watermark_exe, "--detect", "--correlation=0", "--in=" + path, "--reference=" + path_reference, "--skip_count=" + str(dct_skip)]

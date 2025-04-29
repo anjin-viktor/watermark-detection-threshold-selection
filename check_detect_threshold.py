@@ -19,10 +19,9 @@ def checkFixedThreshold(fileName, threshold):
     with open(fileName) as csvfile:
         reader = csv.reader(csvfile, quoting=csv.QUOTE_MINIMAL)
         for row in reader:
-            rowThreshold = float(row[2])
-            rowThresholdFiltered = float(row[3])
-            rowNoWatermark = float(row[4])
-
+            rowThreshold = float(row[4])
+            rowThresholdFiltered = float(row[5])
+            rowNoWatermark = float(row[6])
 
             if rowThreshold >= threshold:
                 detectW += 1
@@ -50,28 +49,31 @@ def checkStatisticalThreshold(fileName):
     with open(fileName) as csvfile:
         reader = csv.reader(csvfile, quoting=csv.QUOTE_MINIMAL)
         for row in reader:
+            rowThreshold = float(row[4]) / 255
+            rowThresholdFiltered = float(row[5]) / 255
+            rowNoWatermark = float(row[6]) / 255
+
             threshold = float(row[1])
-            rowThreshold = float(row[2])
-            rowThresholdFiltered = float(row[3])
-            rowNoWatermark = float(row[4])
-
             threshold *= alpha / 2
-
             if rowThreshold >= threshold:
                 detectW += 1
             else:
                 nonDetectW += 1
 
+            threshold = float(row[2])
+            threshold *= alpha / 2
             if rowThresholdFiltered >= threshold:
                 detectWFiltered += 1
             else:
                 nonDetectWFiltered += 1
 
+            threshold = float(row[3])
+            threshold *= alpha / 2
             if rowNoWatermark >= threshold:
+                print(row[0])
                 detectFP += 1
 
     return [detectW, nonDetectW, detectWFiltered, nonDetectWFiltered, detectFP]
-
 
 
 if len(sys.argv) < 2:
