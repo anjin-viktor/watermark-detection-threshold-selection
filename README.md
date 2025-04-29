@@ -1,19 +1,19 @@
 # Watermark Detection Threshold Selection
 
-This repository contains Python scripts, a C++ implementation of watermarks, and evaluation results used in the article *"Selecting Detection Threshold for Correlation-Based Digital Watermarks Through F-Score Optimization."*
+This repository contains Python scripts, C++ implementation of watermarks, and evaluation results used in the article *"Detection threshold selection for correlation based digital image watermarks through F-score optimization"*
 
 ## Annotation
-The proposed approach for selecting the detection threshold for digital watermarks utilizes correlation estimation at the detection stage. The method involves an algorithm for estimating the F-score to determine the optimal detection threshold using an image dataset. Finding the optimal detection threshold is achieved by optimizing the introduced F-score. The behavior of the F-score function is analyzed, enabling a reduction in the complexity of maximization. The effectiveness of various optimization algorithms for maximizing the F-score is compared, and the number of images sufficient to achieve reliable results is evaluated.
+The approach for selecting the detection threshold for correlation based digital image watermarks is proposed. The watermark detection process is treated as a binary classification problem, enabling the use of the F-score as a quality metric. Within this framework, the optimal detection threshold corresponds to the maximum F-score value. The F-score is computed over a set of test images and a predefined set of operations that simulate distortions introduced during transmission or watermark removal attacks. Methods for improving the computational efficiency of F-score maximization are proposed. The proposed threshold selection approach is compared with a statistical based threshold selection method.
 
-In the process of detecting digital watermarks using the correlation method, the tested image is classified as either containing or not containing a specific watermark. Thus, digital watermark detection is a binary image classification task. This allows the use of the F-score to evaluate the quality of watermark detection at different threshold values. To calculate the F-score based on the detection threshold, an experiment is conducted on a set of images that includes both images with embedded watermarks and images without them. The number and types of detection procedure triggers are then counted.
+In the process of detecting digital watermarks using the correlation based digital watermarking method, the tested image is classified as either containing or not containing a tested watermark. That means the digital watermark detection can be threated as a binary image classification. This allows the use of the F-score to evaluate the quality of watermark detection. To calculate the F-score based on the detection threshold, an experiment is conducted on a set of images that includes both images with embedded watermarks and images without them.
 
-By iterating through threshold values, a graph of the F-score as a function of the detection threshold can be constructed. The figure below shows the results of calculating the F-score using the proposed method for 8,091 images from the Flickr8K database. The horizontal axis of the graph represents the detection threshold values tested during the computational experiment. The vertical axis represents the calculated F-score values, which range from 0 to 1. The red dots indicate the detected optimum of the F-score.
+By iterating through threshold values, the graph of the F-score as a function of the detection threshold can be plitted. The figure below shows the results of calculating the F-score using the proposed method for 8091 images from the Flickr8K database. The horizontal axis of the graph represents the detection threshold values tested during the computational experiment. The vertical axis represents the calculated F-score values. The red dots indicate the detected optimum of the F-score.
 
 ![Detection Threshold Graph](./results/images/dct_watermark_5.png)
 
 The graph below shows the deviation of detection threshold values found using F-score optimization methods on reduced image sets.
 
-The horizontal axis represents the number of images used in the experiment, while the vertical axis shows the absolute difference between the detection threshold value calculated through F-score optimization using the number of images specified on the horizontal axis and the detection threshold value obtained through F-score optimization on the full set of 8,091 images.
+The horizontal axis represents the number of images used in the experiment, and the vertical axis shows the absolute difference between the detection threshold value calculated through F-score optimization using the number of images specified on the horizontal axis and the detection threshold value obtained through F-score optimization on the full set of 8091 images.
 
 ![F-Score Deviation Graph](./results/images/DeltaFScore.png)
 
@@ -22,7 +22,7 @@ The article uses the following watermarks:
 
 1) **E_BLIND/D_LC algorithm**, described in *"Cox I. et al. Digital Watermarking and Steganography" – Morgan Kaufmann, 2007.*
 2) **DCT-based watermark**, described in *"Cox I. J. et al. Secure Spread Spectrum Watermarking for Multimedia," IEEE Transactions on Image Processing, 1997, Vol. 6, No. 12, pp. 1673-1687.*
-3) **Another DCT-based watermark**, described in *"Barni M. et al. A DCT-Domain System for Robust Image Watermarking," Signal Processing, 1998, Vol. 66, No. 3, pp. 357-372.*
+3) **DCT-based watermark**, described in *"Barni M. et al. A DCT-Domain System for Robust Image Watermarking," Signal Processing, 1998, Vol. 66, No. 3, pp. 357-372.*
 
 The source code for these C++ implementations is available in the `watermarks_implementation` directory, along with build instructions in `README.md`.
 
